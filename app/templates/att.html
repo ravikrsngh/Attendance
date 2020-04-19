@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Attendace</title>
+    <link rel="stylesheet" href={% static 'css/grid.css' %}>
+    <link rel="stylesheet" href={% static 'css/home.css' %}>
+    <link rel="stylesheet" href={% static 'css/animate.css' %}>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+
+    <div class="first-row1">
+      <div class=" span-1-of-5 menu animated slideInLeft fast">
+        <ul>
+          <li class="animated slideInLeft slow">
+            <div class="circle "></div>
+            <br>
+            Welcome , {{user.first_name}}
+          </li>
+          <li class="animated slideInLeft slow">Dashborad</li>
+          <li class="animated slideInLeft slow">Past Records</li>
+          <li class="animated slideInLeft slow"><a href="{% url 'app:user_logout' %}">Logout</a></li>
+        </ul>
+      </div>
+      <div class="span-4-of-5 main-board-att">
+        <center>
+        <h2>ATTENDANCE FOR {{date}} {{slot}}</h2>
+      </center>
+
+      <div class="attendance-table">
+
+        <table id="consolidated" class="table table-bordered" style="margin-top:2%">
+          <thead>
+        <tr><th>Name</th>
+          <th>USN</th>
+        <th>STATUS</th>
+        </tr>
+      </thead>
+        <tbody>
+          {% for i in  u %}
+          <tr>
+            <td data-label="Name">{{i.user.first_name}}</td>
+          <td data-label="USN">{{i.usn}}</td>
+          {% if i.user.first_name in present %}
+          <td data-label="STATUS">PRESENT</td>
+          {% else %}
+          <td data-label="STATUS">ABSENT</td>
+          {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      </div>
+
+      <div class="remain">
+        <h5>Someone got left ?? </h5>
+        <br>
+        <a href="{% url 'app:manual' slot date %}">Edit Manually</a>
+      </div>
+
+
+
+      </div>
+    </div>
+
+  </body>
+</html>

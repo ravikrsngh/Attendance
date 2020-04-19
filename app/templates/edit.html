@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+
+    <meta charset="utf-8">
+    <title>Manual Editing</title>
+    <link rel="stylesheet" href={% static 'css/grid.css'%}>
+    <link rel="stylesheet" href={% static 'css/animate.css' %}>
+    <link rel="stylesheet" href={% static 'css/home.css'%}>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+
+    <div class="first-row1">
+      <div class=" span-1-of-5 menu animated slideInLeft fast">
+        <ul>
+          <li class="animated slideInLeft slow">
+            <div class="circle "></div>
+            <br>
+            Welcome , {{user.first_name}}
+          </li>
+          <li class="animated slideInLeft slow">Dashborad</li>
+          <li class="animated slideInLeft slow">Past Records</li>
+          <li class="animated slideInLeft slow"><a href="{% url 'app:user_logout' %}">Logout</a></li>
+        </ul>
+      </div>
+
+
+      <div class="span-4-of-5 main-board-edit">
+        <div class="search-option">
+          <h4>Enter the USN of the student</h4>
+          <br>
+          <form class=""  method="post">
+            {% csrf_token %}
+            <input type="text" name="usn" placeholder="Enter USN">
+            <input type="submit" name="" value="Search">
+          </form>
+          <br>
+          <ul>
+            {% for i in userprofile %}
+            <li><strong>{{i.user.first_name}}</strong> has been marked present</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <br>
+      <div class="attendance-table">
+
+        <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>NAME</th>
+            <th>USN</th>
+            <th>STATUS</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for a,b,c in f %}
+          <tr class="animated slideInDown fast">
+            <td>{{a}}</td>
+            <td>{{b}}</td>
+            <td>{{c}}</td>
+          </tr>
+          {% endfor%}
+        </tbody>
+        </table>
+
+      </div>
+
+      </div>
+    </div>
+
+
+  </body>
+</html>

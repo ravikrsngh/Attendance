@@ -1,0 +1,11 @@
+{% block body_block %}
+  {% autoescape off %}
+  Hi {{ user.username }},
+  We sorry but total {{n}} images got rejected.
+  Please click on the link and upload the images which were rejected,
+  Make sure the images have the face clearly visible
+  http://{{ domain }}{% url 'app:reinsert' u=u n=n %}
+  Thank you,
+  The 4R's
+  {% endautoescape %}
+{% endblock %}

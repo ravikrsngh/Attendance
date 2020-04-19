@@ -1,0 +1,370 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href={% static "css/home.css" %}>
+  <link rel="stylesheet" href={% static "css/grid.css" %}>
+  <link rel="stylesheet" href={% static "css/animate.css" %}>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <style media="screen">
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+  html {
+    background-color: white;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  .row {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .b {
+    border: 1px solid black;
+  }
+
+  .first-row {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .first-row1 {
+    height: 100vh;
+    background-color: #b3cbd1;
+    overflow: hidden;
+  }
+
+  .image {
+    text-align: center;
+    margin-top: 20%;
+    margin-bottom: 3%;
+  }
+
+  .image img {
+    width: 50%;
+    height: auto;
+  }
+
+  .heading {
+    display: block;
+    text-align: center;
+    color: #FFBB00;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 32px;
+  }
+
+  .info {
+    display: block;
+    text-align: justify;
+    color: #A49694;
+    position: relative;
+    left: 11%;
+    font-weight: 300;
+    width: 80%;
+    margin-top: 3%;
+  }
+
+  .part {
+    padding-top: 7%;
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+
+  .option-block {
+    background-color: #edebe6;
+    border-radius: 10px;
+    box-shadow: 0px 1px 6px gray;
+  }
+
+  .option-block h4 {
+
+    margin-top: 4%;
+    display: block;
+    font-weight: 400;
+    text-align: center;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+  }
+
+  .login-form {
+    margin-left: 40px;
+    margin-top :20px;
+    width: 80%;
+
+  }
+
+  .login-form .row{
+    margin-bottom: 3%;
+  }
+
+  .login-form .row label {
+    font-size: 15px;
+  }
+
+  .login-form .row input[type=text] , input[type=password]{
+    width: 100%;
+    padding: 4%;
+    background-color: transparent;
+    border:2px solid #ccc8c1;
+    box-shadow: 0 0 0 ;
+  }
+
+  .login-form .row input[type=submit]{
+    background-color: #FFBB00;
+    width: 100%;
+    padding: 4%;
+    border: none;
+    margin: 30px 0px;
+    border-radius: 5px;
+  }
+
+  h6 a{
+    display: block;
+    margin: 10px 40px;
+    text-decoration: none;
+    color:blue;
+  }
+
+  .menu {
+    float: left;
+    background-color: #1C3144;
+    list-style-type: none;
+    height: 100vh;
+    text-align: center;
+  }
+
+  .menu a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .menu ul li {
+    padding: 5%;
+    color:white;
+    font-size: 15px;
+  }
+
+  .menu ul li:hover {
+    background-color: #2c4f6d;
+  }
+
+  .menu ul li:first-child {
+    height: 140px;
+  }
+
+  .circle {
+    margin: auto;
+    width : 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #233e56;
+  }
+
+  .main-board {
+    position: relative;
+    float: left;
+  }
+
+  .attendance-icon img {
+    margin-left: 100px;
+    width: 62%;
+    height: auto;
+  }
+
+  .main-board a {
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    background-color: #003c49;
+    text-decoration: none;
+    color: white;
+    padding: 2%;
+    border-radius: 15px;
+  }
+
+  .main-board a:hover {
+    background-color: #006177;
+  }
+
+  .main-board-att {
+    padding: 5%;
+    width: 100%;
+  }
+
+  .main-board-att h2 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+  }
+
+  .attendance-table {
+    text-align: center;
+  }
+
+  table {
+    background-color: #003c49;
+    color:#b3cbd1;
+    position: relative;
+    left:240px;
+    border-collapse:collapse;
+    width:60%;
+
+  }
+
+  table,th,td {
+    border: 2px solid #b3cbd1;
+  }
+
+
+  th,td {
+    width: auto;
+    font-size: 20px;
+    padding: 1.5%;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  tr:nth-child(even) {background-color: #f2f2f2;}
+
+  .remain {
+    margin:50px 450px;
+  }
+
+  .remain a {
+    text-decoration: none;
+    font-size: 20px;
+    background-color: #003c49;
+    padding: 3%;
+    color: white;
+    border-radius: 10px;
+  }
+
+  .main-board-edit {
+    padding: 5%;
+    width: 100%;
+  }
+
+  .search-option {
+    position: relative;
+    left:250px;
+  }
+
+  .search-option ul {
+    position:relative;
+    left:50px;
+  }
+
+  .search-option input[type=text] {
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    padding:10px;
+    width:300px;
+  }
+
+  .search-option input[type=submit] {
+    background-color: #003c49;
+    border: none;
+    border-radius: 20px;
+    padding:10px;
+    width:150px;
+    color:white;
+    font-size: 15px;
+  }
+
+  </style>
+  </head>
+  <body>
+
+    {% if user.is_authenticated %}
+
+    <div class="first-row1">
+
+      <div class="span-1-of-5 menu animated slideInLeft fast">
+        <ul>
+          <li class="animated slideInLeft slow">
+            <div class="circle "></div>
+            <br>
+            Welcome , {{user.first_name}}
+          </li>
+          <li class="animated slideInLeft slow">Dashborad</li>
+          <li class="animated slideInLeft slow">Past Records</li>
+          <li class="animated slideInLeft slow"><a href="{% url 'app:user_logout' %}">Logout</a></li>
+        </ul>
+      </div>
+      <div class="span-4-of-5 main-board">
+      <div class="attendance-icon animated slideInLeft slow">
+        <img src={% static 'images/at2.png' %} alt="">
+      </div>
+      <a href="{% url 'app:start' %}" class="animated slideInLeft slow">Take Attendance</a>
+      </div>
+    </div>
+
+{% else %}
+
+<div class="section first-row">
+
+  <div class="row">
+    <div class="col span-1-of-2">
+      <div class="image">
+        <img src={% static "images/at1.jpg" %} alt="PICTURE">
+      </div>
+      <h3 class="heading animated slideInUp fast">Go Digital with PRESENT !</h3>
+      <h4 class="info animated slideInUp fast">Present is web based attendance system that collects attendance through CCTV surveillance camera videos and updates the attendance into the central database.</h4>
+    </div>
+    <div class="col span-1-of-2 part">
+      <div class="option-block animated slideInUp fast">
+        <br>
+        <h4>Login into your account to continue</h4>
+        <form class="login-form" action={% url 'app:user_login'%} method="post">
+          {% csrf_token %}
+          <div class="row animated slideInUp slow">
+            <label>Email</label>
+          </div>
+          <div class="row animated slideInUp slow">
+            <input type="text" name="username" value="">
+          </div>
+          <div class="row animated slideInUp slow">
+            <label>Password</label>
+          </div>
+          <div class="row animated slideInUp slow">
+            <input type="password" name="password" value="">
+          </div>
+          <div class="row sub-btn">
+            <input type="submit" name="" value="Login" class="animated slideInUp slow">
+          </div>
+        </form>
+
+         <h6> <a href="{% url 'app:r_student' %}" class="animated slideInUp slow">Register as Student ?</a> </h6>
+         <h6> <a href="{% url 'app:r_teacher' %}" class="animated slideInUp slow">Register as Teacher ?</a> </h6>
+         <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endif%}
+
+
+  </body>
+</html>
